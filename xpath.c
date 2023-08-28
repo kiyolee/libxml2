@@ -182,6 +182,11 @@ double xmlXPathNAN = 0.0;
 double xmlXPathPINF = 0.0;
 double xmlXPathNINF = 0.0;
 
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable: 4723) // potential divide by 0
+#endif
+
 /**
  * xmlXPathInit:
  *
@@ -246,6 +251,10 @@ xmlInitXPathInternal(void) {
         xmlXPathSFHash[bucketIndex] = i;
     }
 }
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 /************************************************************************
  *									*
