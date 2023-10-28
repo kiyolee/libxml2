@@ -8847,7 +8847,7 @@ static int
 xmlAttrHashInsert(xmlParserCtxtPtr ctxt, unsigned size, const xmlChar *name,
                   const xmlChar *uri, unsigned hashValue, int aindex) {
     xmlAttrHashBucket *table = ctxt->attrHash;
-    xmlAttrHashBucket *bucket;
+    xmlAttrHashBucket *bucket = NULL;
     unsigned hindex;
 
     hindex = hashValue & (size - 1);
@@ -9323,7 +9323,7 @@ next_attr:
 	if (defaults != NULL) {
 	    for (i = 0; i < defaults->nbAttrs; i++) {
                 xmlDefAttr *attr = &defaults->attrs[i];
-                const xmlChar *nsuri;
+                const xmlChar *nsuri = NULL;
                 unsigned hashValue, uriHashValue;
                 int res;
 
