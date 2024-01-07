@@ -8210,7 +8210,7 @@ void
 xmlXPathLangFunction(xmlXPathParserContextPtr ctxt, int nargs) {
     xmlXPathObjectPtr val;
     xmlNodePtr cur;
-    xmlChar *theLang;
+    xmlChar *theLang = NULL;
     const xmlChar *lang;
     int ret = 0;
     int i;
