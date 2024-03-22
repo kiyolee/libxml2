@@ -3931,7 +3931,7 @@ xmlCopyPropInternal(xmlDocPtr doc, xmlNodePtr target, xmlAttrPtr cur) {
     ret->parent = target;
 
     if ((cur->ns != NULL) && (target != NULL)) {
-      xmlNsPtr ns;
+      xmlNsPtr ns = NULL;
       int res;
 
       res = xmlSearchNsSafe(target, cur->ns->prefix, &ns);
@@ -6209,7 +6209,7 @@ xmlSearchNsByHref(xmlDocPtr doc ATTRIBUTE_UNUSED, xmlNodePtr node,
  */
 static xmlNsPtr
 xmlNewReconciledNs(xmlNodePtr tree, xmlNsPtr ns) {
-    xmlNsPtr def;
+    xmlNsPtr def = NULL;
     xmlChar prefix[50];
     int counter = 1;
     int res;
