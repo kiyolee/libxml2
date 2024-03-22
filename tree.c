@@ -5221,7 +5221,7 @@ xmlNodeSetName(xmlNodePtr cur, const xmlChar *name) {
  */
 int
 xmlNodeSetBase(xmlNodePtr cur, const xmlChar* uri) {
-    xmlNsPtr ns;
+    xmlNsPtr ns = NULL;
     xmlChar* fixed;
 
     if (cur == NULL)
@@ -6032,7 +6032,7 @@ xmlSearchNsSafe(xmlNodePtr node, const xmlChar *prefix,
 xmlNsPtr
 xmlSearchNs(xmlDocPtr doc ATTRIBUTE_UNUSED, xmlNodePtr node,
             const xmlChar *nameSpace) {
-    xmlNsPtr cur;
+    xmlNsPtr cur = NULL;
 
     xmlSearchNsSafe(node, nameSpace, &cur);
     return(cur);
@@ -6188,7 +6188,7 @@ xmlSearchNsByHrefSafe(xmlNodePtr node, const xmlChar *href,
 xmlNsPtr
 xmlSearchNsByHref(xmlDocPtr doc ATTRIBUTE_UNUSED, xmlNodePtr node,
                   const xmlChar * href) {
-    xmlNsPtr cur;
+    xmlNsPtr cur = NULL;
 
     xmlSearchNsByHrefSafe(node, href, &cur);
     return(cur);
