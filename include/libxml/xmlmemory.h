@@ -155,7 +155,9 @@ XMLPUBFUN void
 XML_DEPRECATED
 XMLPUBFUN void
 	xmlMemShow	(FILE *fp, int nr);
+#if !defined(IN_XSLTPROC)
 XML_DEPRECATED
+#endif
 XMLPUBFUN void
 	xmlMemoryDump	(void);
 XMLPUBFUN void *
