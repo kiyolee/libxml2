@@ -28,5 +28,11 @@
   #define getcwd _getcwd
 #endif
 
+#ifdef _WIN32
+#define XML_SYSCONFDIR "C:/etc"
+#else
+#define XML_SYSCONFDIR "/etc"
+#endif
+
 #endif /* __LIBXML_WIN32_CONFIG__ */
 
