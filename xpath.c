@@ -200,6 +200,11 @@ xmlXPathSFComputeHash(const xmlChar *name) {
     return(hashValue);
 }
 
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable: 4723) // potential divide by 0
+#endif
+
 /**
  * Initialize the XPath environment
  */
@@ -240,6 +245,10 @@ xmlInitXPathInternal(void) {
         xmlXPathSFHash[bucketIndex] = i;
     }
 }
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 /************************************************************************
  *									*
