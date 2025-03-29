@@ -126,9 +126,6 @@
     <ClCompile Include="..\..\HTMLtree.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\legacy.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\list.c">
       <Filter>Source Files</Filter>
     </ClCompile>
