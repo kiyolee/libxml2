@@ -200,11 +200,6 @@ xmlXPathSFComputeHash(const xmlChar *name) {
     return(hashValue);
 }
 
-#ifdef _MSC_VER
-#pragma warning(push)
-#pragma warning(disable: 4723) // potential divide by 0
-#endif
-
 /**
  * Initialize the XPath environment
  */
@@ -218,11 +213,18 @@ xmlInitXPathInternal(void) {
     xmlXPathPINF = INFINITY;
     xmlXPathNINF = -INFINITY;
 #else
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable: 4723) // potential divide by 0
+#endif
     /* MSVC doesn't allow division by zero in constant expressions. */
     double zero = 0.0;
     xmlXPathNAN = 0.0 / zero;
     xmlXPathPINF = 1.0 / zero;
     xmlXPathNINF = -xmlXPathPINF;
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 #endif
 
     /*
@@ -245,10 +247,6 @@ xmlInitXPathInternal(void) {
         xmlXPathSFHash[bucketIndex] = i;
     }
 }
-
-#ifdef _MSC_VER
-#pragma warning(pop)
-#endif
 
 /************************************************************************
  *									*
