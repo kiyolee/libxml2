@@ -550,6 +550,10 @@ xmlSchemaInitTypes(void)
     xmlSchemaPINF = INFINITY;
     xmlSchemaNINF = -INFINITY;
 #else
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable: 4723) // potential divide by 0
+#endif
     {
         /* MSVC doesn't allow division by zero in constant expressions. */
         double zero = 0.0;
@@ -557,6 +561,9 @@ xmlSchemaInitTypes(void)
         xmlSchemaPINF = 1.0 / zero;
         xmlSchemaNINF = -xmlSchemaPINF;
     }
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 #endif
 
     xmlSchemaTypesBank = xmlHashCreate(40);
