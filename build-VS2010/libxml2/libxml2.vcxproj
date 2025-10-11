@@ -197,7 +197,6 @@
     <ClInclude Include="..\..\include\private\tree.h" />
     <ClInclude Include="..\..\include\private\xinclude.h" />
     <ClInclude Include="..\..\include\private\xpath.h" />
-    <ClInclude Include="..\..\include\private\xzlib.h" />
     <ClInclude Include="..\..\libxml.h" />
     <ClInclude Include="..\..\timsort.h" />
     <ClInclude Include="..\..\win32\config.h" />
