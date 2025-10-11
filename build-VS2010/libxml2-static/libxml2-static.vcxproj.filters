@@ -323,9 +323,6 @@
     <ClInclude Include="..\..\include\private\xpath.h">
       <Filter>Header Files\include\private</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\private\xzlib.h">
-      <Filter>Header Files\include\private</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\private\buf.h">
       <Filter>Header Files\include\private</Filter>
     </ClInclude>

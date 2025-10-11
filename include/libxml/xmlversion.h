@@ -16,17 +16,17 @@
 /**
  * the version string like "1.2.3"
  */
-#define LIBXML_DOTTED_VERSION "2.15.0"
+#define LIBXML_DOTTED_VERSION "2.16.0"
 
 /**
  * the version number: 1.2.3 value is 10203
  */
-#define LIBXML_VERSION 21500
+#define LIBXML_VERSION 21600
 
 /**
  * the version number string, 1.2.3 value is "10203"
  */
-#define LIBXML_VERSION_STRING "21500"
+#define LIBXML_VERSION_STRING "21600"
 
 /**
  * extra version information, used to show a git commit description
@@ -37,7 +37,7 @@
  * Macro to check that the libxml version in use is compatible with
  * the version the software has been compiled against
  */
-#define LIBXML_TEST_VERSION xmlCheckVersion(21500);
+#define LIBXML_TEST_VERSION xmlCheckVersion(21600);
 
 #if 1
 /**
@@ -138,6 +138,7 @@
  * Whether the Catalog support is configured in
  */
 #define LIBXML_CATALOG_ENABLED
+#define LIBXML_SGML_CATALOG_ENABLED
 #endif
 
 #if 1
@@ -175,7 +176,7 @@
 #define LIBXML_ICU_ENABLED
 #endif
 
-#if 0
+#if 1
 /**
  * Whether ISO-8859-* support is made available in case iconv is not
  */
@@ -222,7 +223,7 @@
 #define LIBXML_SCHEMAS_ENABLED
 #endif
 
-#if 1
+#if 0
 /**
  * Whether the Schematron validation interfaces are compiled in
  */
@@ -245,15 +246,6 @@
  * Whether the Zlib support is compiled in
  */
 #define LIBXML_ZLIB_ENABLED
-#endif
-
-#if 1
-/**
- * Whether the Lzma support is compiled in
- */
-#if defined(_MSC_VER) && _MSC_VER >= 1800 // VS2013 or later
-#define LIBXML_LZMA_ENABLED
-#endif
 #endif
 
 #include <libxml/xmlexports.h>
