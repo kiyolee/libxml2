@@ -529,6 +529,16 @@ xmlCleanupSchemasTypesInternal(void)
     xmlCleanupMutex(&xmlSchemasTypesMutex);
 }
 
+#ifdef _MSC_VER
+#pragma warning(push)
+#if defined(NAN) && defined(INFINITY)
+#pragma warning(disable: 4056) // overflow in floating-point constant arithmetic
+#pragma warning(disable: 4756) // overflow in constant arithmetic
+#else
+#pragma warning(disable: 4723) // potential divide by 0
+#endif
+#endif
+
 /**
  * Initialize the default XML Schemas type library
  *
@@ -881,6 +891,10 @@ error:
     xmlMutexUnlock(&xmlSchemasTypesMutex);
     return (-1);
 }
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 /**
  * Cleanup the default XML Schemas type library
