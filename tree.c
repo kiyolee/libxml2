@@ -3677,7 +3677,7 @@ xmlCopyPropInternal(xmlDocPtr doc, xmlNodePtr target, xmlAttrPtr cur) {
     ret->parent = target;
 
     if ((cur->ns != NULL) && (target != NULL)) {
-      xmlNsPtr ns;
+      xmlNsPtr ns = NULL;
       int res;
 
       res = xmlSearchNsSafe(target, cur->ns->prefix, &ns);
@@ -4919,7 +4919,7 @@ xmlNodeSetName(xmlNode *cur, const xmlChar *name) {
  */
 int
 xmlNodeSetBase(xmlNode *cur, const xmlChar* uri) {
-    xmlNsPtr ns;
+    xmlNsPtr ns = NULL;
     xmlChar* fixed;
 
     if (cur == NULL)
@@ -5737,7 +5737,7 @@ xmlSearchNsSafe(xmlNode *node, const xmlChar *prefix,
 xmlNs *
 xmlSearchNs(xmlDoc *doc ATTRIBUTE_UNUSED, xmlNode *node,
             const xmlChar *nameSpace) {
-    xmlNsPtr cur;
+    xmlNsPtr cur = NULL;
 
     xmlSearchNsSafe(node, nameSpace, &cur);
     return(cur);
@@ -5886,7 +5886,7 @@ xmlSearchNsByHrefSafe(xmlNode *node, const xmlChar *href,
 xmlNs *
 xmlSearchNsByHref(xmlDoc *doc ATTRIBUTE_UNUSED, xmlNode *node,
                   const xmlChar * href) {
-    xmlNsPtr cur;
+    xmlNsPtr cur = NULL;
 
     xmlSearchNsByHrefSafe(node, href, &cur);
     return(cur);
@@ -5907,7 +5907,7 @@ xmlSearchNsByHref(xmlDoc *doc ATTRIBUTE_UNUSED, xmlNode *node,
  */
 static xmlNsPtr
 xmlNewReconciledNs(xmlNodePtr tree, xmlNsPtr ns) {
-    xmlNsPtr def;
+    xmlNsPtr def = NULL;
     xmlChar prefix[50];
     int counter = 1;
     int res;
